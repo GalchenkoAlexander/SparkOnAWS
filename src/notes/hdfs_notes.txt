@@ -1,0 +1,177 @@
+## HDFS configuration files
+# Server configuration files
+/var/run/cloudera-scm-agent/process/<unique-process-name>
+
+# Client configuration files
+/etc/hadoop/conf
+
+# Main HDFS configuration files
+core-site.xml
+hdfs-site.xml
+
+
+# How to check value of some configuration parameter
+hdfs getconf –confkey dfs.blocksize
+
+## HDFS users’ home directories for centos
+# In Linux
+/home/centos
+# In HDFS:
+/user/centos
+
+## Absolute and relative paths on HDFS
+# Absolute
+hdfs://<NameNodeHost>:8020/user/centos
+
+# if there is fs.defaultFS in core-site.xml then
+hdfs:///user/centos
+
+# HDFS NameNode UI
+http://<namenode_host>:50070
+
+## HDFS Commands
+
+# Check a dir
+hdfs dfs -cat /user/*
+
+# Create directory on HDFS:
+sudo -u hdfs hdfs dfs -mkdir -p /user/centos
+
+# Remove file from HDFS:
+hdfs dfs -rm -r -f -skipTrash <dir>
+hdfs dfs -rm -r -f -skipTrash /tmp/REMOVE.me
+
+# Change ownership and permissions:
+sudo -u hdfs hdfs dfs -chown -R centos:centos /user/centos
+sudo -u hdfs hdfs dfs -chmod -R 744 /user/centos
+
+# Upload file to HDFS:
+hdfs dfs -put /opt/materials/ml-20m/README.txt /user/centos/
+
+# Browse HDFS directory:
+hdfs dfs -ls -h /user/centos/
+
+# Copy directory from HDFS to local machine:
+hdfs dfs -get /tmp /home/centos
+
+# Change replication factor for a file:
+hdfs dfs -setrep 2 /user/centos/README.txt
+
+# Write file with a specific block size to HDFS:
+hdfs dfs -D dfs.blocksize=67108864 -put /opt/materials/ml-20m/README.txt /user/centos/README.txt.1
+
+# Check file statistics:
+hdfs dfs -stat "%b %o %r %y" README*
+
+# Find all README files on HDFS:
+hdfs dfs -find / -name README*
+
+# Create snapshot for directory (snapshots have to be allowed before):
+hdfs dfs -createSnapshot /user/centos snap_20171028
+
+# Check entire HDFS health (under HDFS superuser):
+sudo -u hdfs hdfs fsck /
+
+# Check health of /user/centos directory and print out files being checked:
+hdfs fsck /user/centos -files
+
+# Check health of /user/centos directory and print out files and blocks being checked:
+hdfs fsck /user/centos -files -blocks
+
+# Check HDFS status (# of data nodes, capacity, etc):
+hdfs dfsadmin -report
+
+# Allow snapshots for sume directory (under HDFS superuser):
+hdfs dfsadmin -allowSnapshot /user/centos
+
+# Read/Write Sequence File
+hdfs dfs -text /<path_to_sequ_file>
+
+
+# Client configuration files ONLY:
+/etc/spark/conf
+
+# Main Spark configuration files:
+spark-defaults.conf
+spark-env.sh
+
+# process running check
+ps –elf | grep resourcemanager
+ps –elf | grep nodemanager
+ps –elf | grep historyserver
+
+# logs ResourceManager
+/var/log/hadoop-yarn
+
+# logs JobHistory
+/var/log/hadoop-mapreduce
+
+## Yarn/MapReduce configuration files:
+# Server configuration files
+/var/run/cloudera-scm-agent/process/<unique-process-name>
+
+# Client configuration files
+/etc/hadoop/conf
+
+# Main YARN/MapReduce configuration files:
+yarn-site.xml
+mapred-site.xml
+
+## Spark configuration files
+# Client configuration files ONLY:
+/etc/spark/conf
+
+# Main Spark configuration files:
+spark-defaults.conf
+spark-env.sh
+
+# Important configuration properties
+# yarn-client, yarn-cluster, local
+spark.master=yarn-client
+
+# either dynamic allocation for executors is enabled or not
+spark.dynamicAllocation.enabled=
+
+# number of executors to allocate initially
+spark.dynamicAllocation.minExecutors=
+
+# YARN ResourceManager UI
+http://<resource-manager-host>:8088
+
+# YARN JobHistory UI
+http://<history-server-host>:19888
+
+# Spark HistoryServer UI
+http://<spark-history-server-host>:18088
+
+## YARN Commands
+# Show application by status:
+yarn application –list –appState FAILED
+
+# Show only Spark applications:
+yarn application –appTypes SPARK
+
+# Kill application:
+yarn application –kill application_1435051505342_0003
+
+# Show application logs (AppMaster logs):
+yarn logs -applicationId application_1435051505342_0003 | less
+
+# Show container logs:
+yarn logs \
+-applicationId application_1435051505342_0003 \
+-containerId container_1435051505342_0003_01_000037 \
+-nodeAddress quickstart.cloudera_8041
+
+## Examples on a cluster
+# MapReduce
+yarn jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
+
+# Spark
+spark-submit /opt/cloudera/parcels/CDH/lib/spark/lib/spark-examples.jar --class <class-name>
+
+# Python examples on your cluster:
+mkdir python-examples
+tar xvzf /opt/cloudera/parcels/CDH/lib/spark/lib/python.tar.gz -C python-examples
+spark-submit python-examples/<example-filename>.py
+

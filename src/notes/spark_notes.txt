@@ -1,0 +1,11 @@
+Q: How to make it easier to deploy my Jar to Spark Cluster in standalone mode?
+//favor using Spark Conf to configure your Spark Context
+val conf = new SparkConf()
+             .setMaster("spark://mymaster:7077")
+             .setAppName("SimpleApp")
+             .set("spark.local.ip", "172.17.0.1")
+             .setJars(Array("/local/dir/SimplyApp.jar"))
+
+val sc = new SparkContext(conf)
+
+You can also use SparkContext.jarOfClass(this.getClass) instead of hard-coding it Array("/local/dir/SimplyApp.jar")
