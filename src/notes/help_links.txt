@@ -1,0 +1,27 @@
+# How to run a spark example program in Intellij IDEA
+https://stackoverflow.com/questions/21449004/how-to-run-a-spark-example-program-in-intellij-idea
+
+# How to make it easier to deploy my Jar to Spark Cluster in standalone mode?
+https://stackoverflow.com/questions/24052899/how-to-make-it-easier-to-deploy-my-jar-to-spark-cluster-in-standalone-mode
+
+# Sending a job to spark cluster
+https://stackoverflow.com/questions/45458659/sending-a-job-to-spark-cluster
+
+# Running Spark Job in Yarn Mode From IDE - Approach 2
+https://www.youtube.com/watch?v=jjuLHPNt11g&list=PLwW9ZDfurSi-X13xa2gd1SXmjk5_7-Ssu&t=1s&index=6
+
+# how to submit SPARK application to YARN cluster in Cloudera
+https://www.youtube.com/watch?v=qQ7D2dtLMk4
+
+# Submitting Applications
+https://spark.apache.org/docs/latest/submitting-applications.html
+
+# Spark - Running applications using spark-submit in YARN mode
+https://www.youtube.com/watch?v=V6aN2QCsIA0
+
+## SBT
+# Running
+https://www.scala-sbt.org/1.0/docs/Running.html
+
+# Repo Group: Apache Spark
+https://mvnrepository.com/artifact/org.apache.spark

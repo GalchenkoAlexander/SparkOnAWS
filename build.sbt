@@ -22,4 +22,7 @@ libraryDependencies += "org.apache.spark" %% "spark-graphx" % "2.3.2"
 // https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka" % "1.6.3"
 
-mainClass in (Compile, run) := Some("com.aws.local")
+// https://mvnrepository.com/artifact/org.apache.spark/spark-yarn
+libraryDependencies += "org.apache.spark" %% "spark-yarn" % "2.4.0"
+
+mainClass in (Compile, run) := Some("com.aws.yarn")

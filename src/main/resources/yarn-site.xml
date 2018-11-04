@@ -48,7 +48,7 @@
     </property>
     <property>
         <name>yarn.scheduler.minimum-allocation-mb</name>
-        <value>1024</value>
+        <value>512</value>
     </property>
     <property>
         <name>yarn.scheduler.increment-allocation-mb</name>
@@ -56,7 +56,7 @@
     </property>
     <property>
         <name>yarn.scheduler.maximum-allocation-mb</name>
-        <value>1024</value>
+        <value>512</value>
     </property>
     <property>
         <name>yarn.scheduler.minimum-allocation-vcores</name>

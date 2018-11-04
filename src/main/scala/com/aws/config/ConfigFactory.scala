@@ -5,7 +5,7 @@ import org.apache.spark.SparkConf
 object ConfigFactory {
 
   val NODE_EXTERNAL_1 = "ec2-52-56-35-119.eu-west-2.compute.amazonaws.com"
-  val NODE_EXTERNAL_2 = "ec2-52-56-231-227.eu-west-2.compute.amazonaws.com"
+  val NODE_EXTERNAL_2 = "ec2-35-178-210-187.eu-west-2.compute.amazonaws.com"
   val NODE_EXTERNAL_3 = "ec2-35-178-239-117.eu-west-2.compute.amazonaws.com"
 
   val NODE_INTERNAL_1 = "ip-172-31-23-34.eu-west-2.compute.internal"
