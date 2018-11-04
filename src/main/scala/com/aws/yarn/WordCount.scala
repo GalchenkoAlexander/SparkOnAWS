@@ -24,8 +24,13 @@ object WordCount extends App {
     .config("spark.yarn.jars", "hdfs://"+ NODE_EXTERNAL_2 + ":8020/user/centos/*.jar")
     .config("spark.hadoop.yarn.application.classpath", "$HADOOP_CLIENT_CONF_DIR,$HADOOP_CONF_DIR,$HADOOP_COMMON_HOME/*,$HADOOP_COMMON_HOME/lib/*,$HADOOP_HDFS_HOME/*,$HADOOP_HDFS_HOME/lib/*,$HADOOP_YARN_HOME/*,$HADOOP_YARN_HOME/lib/*")
 
-    .config("spark.hadoop.yarn.scheduler.maximum-allocation-mb", "512")
-    .config("spark.hadoop.yarn.scheduler.minimum-allocation-mb", "512")
+    .config("spark.executor.memory", "512m")
+//    .config("spark.authenticate", "true")
+    .config("spark.hadoop.proxyuser.sparknotebook.hosts", "*")
+    .config("spark.hadoop.proxyuser.sparknotebook.users", "*")
+    .config("spark.hadoop.proxyuser.sparknotebook.groups", "*")
+    .config("spark.yarn.appMasterEnv.HADOOP_USER_NAME", "centos")
+    //.config("spark.hadoop.yarn.scheduler.minimum-allocation-mb", "512")
 
     .getOrCreate()
 

@@ -55,3 +55,6 @@ nohup ssh -i <path-to-key>.pem -CND 8157 centos@<public_ip> &
 
 ## Log in to Cloudera Director:
 http://<private_ip>:7189
+
+# restart Cloudera manager
+sudo service cloudera-scm-server restart

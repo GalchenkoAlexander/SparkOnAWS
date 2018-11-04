@@ -9,3 +9,5 @@ val conf = new SparkConf()
 val sc = new SparkContext(conf)
 
 You can also use SparkContext.jarOfClass(this.getClass) instead of hard-coding it Array("/local/dir/SimplyApp.jar")
+
+/etc/spark/conf/spark-defaults.conf

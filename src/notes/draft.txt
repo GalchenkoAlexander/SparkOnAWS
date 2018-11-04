@@ -8,3 +8,10 @@ yarn.scheduler.minimum-allocation-mb
 yarn.nodemanager.resource.memory-mb
 
 cat /etc/hadoop/conf/yarn-site.xml | grep yarn.scheduler -A 2 | grep allocation-mb -A 2
+
+spark.executor.memory + spark.executor.memoryOverhead + spark.executor.pyspark.memory > maxMem
+
+maxMem = 1024 MB
+spark.executor.memory = 1024
+spark.executor.memoryOverhead = 384 MB
+spark.executor.pyspark.memor = 0
