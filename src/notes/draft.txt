@@ -5,3 +5,5 @@ of 'yarn.scheduler.maximum-allocation-mb' and/or 'yarn.nodemanager.resource.memo
 
 yarn.scheduler.maximum-allocation-mb
 yarn.nodemanager.resource.memory-mb
+
+cat /etc/hadoop/conf/yarn-site.xml | grep yarn.scheduler -A 2 | grep allocation-mb -A 2
