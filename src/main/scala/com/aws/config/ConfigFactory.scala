@@ -5,11 +5,11 @@ import org.apache.spark.SparkConf
 object ConfigFactory {
 
   val NODE_EXTERNAL_1 = "ec2-35-178-171-55.eu-west-2.compute.amazonaws.com"
-  val NODE_EXTERNAL_2 = "ec2-35-178-210-187.eu-west-2.compute.amazonaws.com"
+  val NODE_EXTERNAL_2 = "ec2-35-177-239-202.eu-west-2.compute.amazonaws.com"
   val NODE_EXTERNAL_3 = "ec2-35-178-239-117.eu-west-2.compute.amazonaws.com"
 
   val NODE_INTERNAL_1 = "ip-172-31-23-34.eu-west-2.compute.internal"
-  val NODE_INTERNAL_2 = "ip-172-31-21-121.eu-west-2.compute.internal"
+  val NODE_INTERNAL_2 = "172.31.21.121"
   val NODE_INTERNAL_3 = "ip-172-31-16-151.eu-west-2.compute.internal"
 
   def yarnDefaultConf: SparkConf = new SparkConf()
