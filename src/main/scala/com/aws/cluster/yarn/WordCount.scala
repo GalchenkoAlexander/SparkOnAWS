@@ -1,7 +1,6 @@
-package com.aws.yarn
+package com.aws.cluster.yarn
 
-import com.aws.config.ConfigFactory.{NODE_INTERNAL_2, NODE_EXTERNAL_2}
-import org.apache.spark.SparkConf
+import com.aws.config.ConfigFactory.NODE_INTERNAL_2
 import org.apache.spark.sql.SparkSession
 
 object WordCount extends App {

@@ -1,6 +1,6 @@
-package com.aws.yarn
+package com.aws.cluster.yarn
 
-import com.aws.config.ConfigFactory._
+import com.aws.config.ConfigFactory.yarnDefaultConf
 import org.apache.spark.SparkContext
 
 object MaxFromList extends App {

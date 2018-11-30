@@ -46,12 +46,13 @@ sudo systemctl stop firewalld
 nohup ssh -i <path-to-key>.pem -CND 8157 centos@<public_ip> &
 # Win Putty/Connection/SSH/Tunnels -> Source Post/8157/Dynamic
 
-## Log in to Chrome using the tunnel:
+## Login to Chrome using the tunnel:
 # Linux
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
 --user-data-dir="$HOME/chrome-with-proxy" --proxy-server="socks5://localhost:8157"
 # WIN
 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --proxy-server="socks5://localhost:8157"
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --proxy-server="socks5://localhost:2222"
 
 ## Log in to Cloudera Director:
 http://<private_ip>:7189

@@ -1,0 +1,429 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n## RDD basics - practice",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>RDD basics - practice</h2>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081982_-2086438957",
+      "id": "20170907-021458_307749951",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "focus": true,
+      "$$hashKey": "object:7810"
+    },
+    {
+      "text": "%spark2.pyspark\n\ndef parse_movie_record(s):\n    id = s.split(\",\")[0]\n    genres = s.split(\",\")[-1]\n    name = ','.join(s.split(\",\")[1:-1])\n    name = name.replace('\"','')\n    return (id,name,genres)\n\nmovies = sc.textFile('hdfs://sandbox.hortonworks.com/user/maria_dev/data/movie/movies.csv')\nmovies = movies.map(parse_movie_record)\n\nmovies.take(5)\n",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[(u'movieId', u'title', u'genres'), (u'1', u'Toy Story (1995)', u'Adventure|Animation|Children|Comedy|Fantasy'), (u'2', u'Jumanji (1995)', u'Adventure|Children|Fantasy'), (u'3', u'Grumpier Old Men (1995)', u'Comedy|Romance'), (u'4', u'Waiting to Exhale (1995)', u'Comedy|Drama|Romance')]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081990_1897651228",
+      "id": "20170907-074020_167166495",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7811"
+    },
+    {
+      "text": "%md\nFind number of movies in the dataset\n",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Find number of movies in the dataset</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081990_1897651228",
+      "id": "20170907-021720_1514780002",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7812"
+    },
+    {
+      "text": "%md\nHow many movies of \"Comedy\" genre database contains?",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>How many movies of &ldquo;Comedy&rdquo; genre database contains?</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081991_1897266479",
+      "id": "20170907-074042_1805151605",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7813"
+    },
+    {
+      "text": "%md\nWhat are the yealiest and the latest years represented in the database?\n",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>What are the yealiest and the latest years represented in the database?</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081991_1897266479",
+      "id": "20170907-074231_1686097224",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7814"
+    },
+    {
+      "text": "%md\nWhat is the minimum, average and maximum number of genres per single movie?\n",
+      "dateUpdated": "2017-10-29T12:02:45+0000",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>What is the maximum number of genres per single movie?</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081992_1895342734",
+      "id": "20170907-074323_2052584623",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7815"
+    },
+    {
+      "text": "%md\nFor each genre, find the number of movies of that genre\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2017-10-29T12:15:01+0000",
+      "config": {
+        "tableHide": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>What is the average number of movies per genre?</p>\n<p>genres = movies.flatMap(lambda x: x[2].split(&lsquo;|&rsquo;))<br/>genres.take(5)</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081993_1894957986",
+      "id": "20170907-074412_1585080467",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "dateStarted": "2017-10-29T12:11:44+0000",
+      "dateFinished": "2017-10-29T12:11:44+0000",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7816"
+    },
+    {
+      "text": "%md\nShow the list of unique genres represented in the dataset",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081993_1894957986",
+      "id": "20170907-075319_1186936879",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7817"
+    },
+    {
+      "text": "%md\nWhat is the longest movie name in the dataset?",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081994_1896112232",
+      "id": "20170907-075348_1959929727",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7818"
+    },
+    {
+      "text": "%md\nShow the list of reused movie names",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>Show the list of reused movie names</p>\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081994_1896112232",
+      "id": "20170907-075551_1879487708",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7819"
+    },
+    {
+      "text": "%md\nUsing the result for the previous task, show top 10 most frequently used film names\n",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081994_1896112232",
+      "id": "20170907-091442_691047626",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7820"
+    },
+    {
+      "text": "%spark2.pyspark\n",
+      "dateUpdated": "2017-10-29T07:44:41+0000",
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "python"
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1509263081996_1893803739",
+      "id": "20170907-072640_962401998",
+      "dateCreated": "2017-10-29T07:44:41+0000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500,
+      "$$hashKey": "object:7821"
+    }
+  ],
+  "name": "Big Data School - RDD basics - practice",
+  "id": "2CX87KFEE",
+  "angularObjects": {
+    "2CND78TZ5:shared_process": [],
+    "2CR2V48XX:shared_process": [],
+    "2CS1CKTB6:shared_process": [],
+    "2CR42WHB9:shared_process": [],
+    "2C8A4SZ9T_livy2:shared_process": [],
+    "2CR8B4RNG:shared_process": [],
+    "2A4U48MY3_spark2:shared_process": [],
+    "2CQR2Q67N:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {}
+}
